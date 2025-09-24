@@ -1,20 +1,13 @@
-# hello.jac
-with entry {
-    print("Hello, Jac World!");
-}
-
-def lovejac() -> str{
-    return "With Jac, Python become more aowsome!";
-}
-
-with entry:__main__ {
-    print(f"{lovejac()}");
-}
-
-
 """A Number Guessing Game"""
 
 import random;
+import from byllm.llm { Model }
+
+# glob llm = Model(model_name="gpt-4o",verbose=False);
+ glob llm = Model(model_name="gemini/gemini-2.0-flash", verbose=False);
+
+"""Provide a fun hint if guess is incorrect"""
+def give_hint(guess: int, correct_number: int) -> str by llm();
 
 walker GuessGame {
     has guess: int;
@@ -49,10 +42,10 @@ impl GuessGame.process_guess {
         visit [-->];
     } else {
         if self.guess < here.correct_number {
-            print("Too high!");
+            print(give_hint(self.guess, here.correct_number));
             here ++> turn(here.correct_number);
         } elif self.guess > here.correct_number {
-            print("Too low!");
+            print(give_hint(self.guess, here.correct_number));
             here ++> turn(here.correct_number);
         } else {
             print("Congratulations! You guessed correctly.");
