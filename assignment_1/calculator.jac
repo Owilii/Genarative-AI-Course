@@ -1,4 +1,4 @@
-"""An Interactive Calculator (class style)"""
+"""Interactive Calculator — strict input validation"""
 
 class Calculator {
     def init(self: Calculator) {
@@ -8,33 +8,72 @@ class Calculator {
         self.op = "";
     }
 
+    # Returns True if s is a whole integer (allows an optional leading + or -)
+    def is_int(self: Calculator, s: str) {
+        s2 = s.strip();
+        if s2 == "" {
+            return False;
+        }
+        first = s2[0];
+        if first == "+" or first == "-" {
+            rest = s2[1:];
+            if rest == "" {
+                return False;
+            }
+            return rest.isdigit();
+        } else {
+            return s2.isdigit();
+        }
+    }
+
     def run(self: Calculator) {
         while self.running {
+            # FIRST NUMBER
             a_str = input("Enter first number (or type 'exit' to quit): ");
-            if a_str == "exit" {
+            a_trim = a_str.strip();
+            a_low = a_trim.lower();
+            if a_low == "exit" or a_low == "quit" or a_low == "q" {
                 print("Goodbye!");
                 self.running = False;
                 break;
             }
-
-            b_str = input("Enter second number (or type 'exit' to quit): ");
-            if b_str == "exit" {
-                print("Goodbye!");
-                self.running = False;
-                break;
-            }
-
-            op = input("Enter operation (add, sub, mul, div): ");
-
-            if not (a_str.isdigit() and b_str.isdigit()) {
-                print("Invalid input. Please enter whole numbers only.");
+            if not self.is_int(a_trim) {
+                print("❌ Invalid input! Please enter a whole number (e.g., 12 or -3).");
                 continue;
-            } else {
-                self.a = int(a_str);
-                self.b = int(b_str);
             }
 
-            self.op = op;
+            # SECOND NUMBER
+            b_str = input("Enter second number (or type 'exit' to quit): ");
+            b_trim = b_str.strip();
+            b_low = b_trim.lower();
+            if b_low == "exit" or b_low == "quit" or b_low == "q" {
+                print("Goodbye!");
+                self.running = False;
+                break;
+            }
+            if not self.is_int(b_trim) {
+                print(" Invalid input! Please enter a whole number (e.g., 5).");
+                continue;
+            }
+
+            # PARSE NUMBERS
+            self.a = int(a_trim);
+            self.b = int(b_trim);
+
+            # OPERATION
+            op = input("Enter operation (add, sub, mul, div): ");
+            op_trim = op.strip().lower();
+            if op_trim == "exit" or op_trim == "quit" or op_trim == "q" {
+                print("Goodbye!");
+                self.running = False;
+                break;
+            }
+            if not (op_trim == "add" or op_trim == "sub" or op_trim == "mul" or op_trim == "div") {
+                print(" Unknown operation! Use: add, sub, mul, div.");
+                continue;
+            }
+
+            self.op = op_trim;
             self.calculate();
         }
     }
@@ -54,7 +93,7 @@ class Calculator {
                 result = self.a / self.b;
                 print(f"{self.a} / {self.b} = {result}");
             } else {
-                print("Error: Division by zero!");
+                print(" Error: Division by zero!");
             }
         } else {
             print("Unknown operation!");
