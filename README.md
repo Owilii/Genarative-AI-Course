@@ -4,7 +4,7 @@ This repository contains my learning notes, assignments, and projects for the **
 
 The 10-week course equips learners with **cutting-edge Generative AI skills** for creating applications with text, images, music, and videos. Delivered by **AI PhDs** and **industry experts**, it blends **theory and practice** through weekly tutorials, hands-on projects, and a final hackathon.  
 
----
+
 
 ## 📚 About the Course  
 
@@ -16,7 +16,6 @@ The 10-week course equips learners with **cutting-edge Generative AI skills** fo
   - Hands-on coding projects  
   - Final hackathon (application of skills to real-world problems)  
 
----
 
 ## 🎯 Skills I’m Learning  
 
@@ -30,7 +29,6 @@ The 10-week course equips learners with **cutting-edge Generative AI skills** fo
 - **Jac Programming & Jaseci Platform**  
 - **Responsible & Ethical AI Practices**  
 
----
 
 ## 🛠 Practical Tools & Ecosystem  
 
@@ -40,14 +38,12 @@ The 10-week course equips learners with **cutting-edge Generative AI skills** fo
 - **Visualization Tools**: AI dashboards, Power BI, Google Data Studio  
 - **Hackathon Project**: To build and deploy a real-world Generative AI solution  
 
----
 
 ## 🌍 Why This Course Matters  
 
 Generative AI is transforming **healthcare, agriculture, finance, education, and transportation**.  
 This training prepares me for **high-impact roles** in the AI-driven economy by providing both **theoretical foundations** and **practical, deployable skills**.  
 
----
 
 ## 📂 Repository Structure  
 
