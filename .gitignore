@@ -1,0 +1,23 @@
+# Ignore Python virtual environment
+jac-env/
+venv/
+.venv/
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# Ignore environment/config files
+.env
+*.env
+
+# Ignore editor/IDE files
+.vscode/
+.idea/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
