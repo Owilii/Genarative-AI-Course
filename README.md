@@ -1,4 +1,3 @@
-# Genarative-AI-Course
 # Generative AI Training – The Open University of Kenya  
 
 This repository contains my learning notes, assignments, and projects for the **Generative AI Training** program jointly offered by **The Open University of Kenya (OUK)** and **BCS Technology International Pty Limited, Australia**.  
